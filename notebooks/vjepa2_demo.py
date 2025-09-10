@@ -9,6 +9,7 @@ import subprocess
 
 import numpy as np
 import torch
+from torch import linalg as LA
 import torch.nn.functional as F
 from decord import VideoReader
 from transformers import AutoModel, AutoVideoProcessor
@@ -90,6 +91,12 @@ def run_sample_inference():
 
     # Inference on video
     out_patch_features = forward_vjepa_video(model_hf, hf_transform)
+
+    # Compute and display norms of the embeddings
+    l1_norm = LA.vector_norm(out_patch_features, ord=1).item()
+    l2_norm = LA.vector_norm(out_patch_features, ord=2).item()
+    print(f"L1 norm of embeddings: {l1_norm}")
+    print(f"L2 norm of embeddings: {l2_norm}")
 
     print(
         f"""
