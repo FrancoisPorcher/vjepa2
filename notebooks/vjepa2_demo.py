@@ -132,6 +132,8 @@ def run_sample_inference():
     out_patch_features_hf, out_patch_features_pt = forward_vjepa_video(
         model_hf, model_pt, hf_transform, pt_video_transform
     )
+    
+    breakpoint()
 
     print(
         f"""

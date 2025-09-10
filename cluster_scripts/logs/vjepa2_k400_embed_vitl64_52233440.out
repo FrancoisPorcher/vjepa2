@@ -1,0 +1,122 @@
+==================== JOB START ====================
+Job Name     : vjepa2_k400_embed_vitl64
+Job ID       : 52233440
+User         : francoisporcher
+Cluster      : h2learnfair
+Node list    : learnfair0601
+Partition    : learnfair
+QOS          : normal
+GPUs         : 1
+CPUs/Task    : 12
+Work dir     : /private/home/francoisporcher/vjepa2
+Script       : /private/home/francoisporcher/vjepa2/scripts/generate_kinetics_400_vjepa2_embeddings_distributed.py
+Start time   : Fri Aug 22 10:43:17 UTC 2025
+===================================================
+>>> nvidia-smi
+Fri Aug 22 10:43:17 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.90.07              Driver Version: 550.90.07      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-16GB           On  |   00000000:06:00.0 Off |                    0 |
+| N/A   32C    P0             46W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla V100-SXM2-16GB           On  |   00000000:07:00.0 Off |                    0 |
+| N/A   32C    P0             43W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  Tesla V100-SXM2-16GB           On  |   00000000:0A:00.0 Off |                    0 |
+| N/A   33C    P0             44W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  Tesla V100-SXM2-16GB           On  |   00000000:0B:00.0 Off |                    0 |
+| N/A   32C    P0             44W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  Tesla V100-SXM2-16GB           On  |   00000000:85:00.0 Off |                    0 |
+| N/A   31C    P0             43W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  Tesla V100-SXM2-16GB           On  |   00000000:86:00.0 Off |                    0 |
+| N/A   34C    P0             62W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  Tesla V100-SXM2-16GB           On  |   00000000:89:00.0 Off |                    0 |
+| N/A   35C    P0             60W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  Tesla V100-SXM2-16GB           On  |   00000000:8A:00.0 Off |                    0 |
+| N/A   31C    P0             60W /  300W |       1MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+>>> Environment modules (if any)
+>>> Activating conda env: vjepa2-312
+>>> Python / CUDA / PyTorch versions
+Python 3.12.11
+================= RUNNING SCRIPT ==================
+rank 4
+world size 8
+local rank 4
+rank 3
+world size 8
+local rank 3
+rank 5
+world size 8
+local rank 5
+rank 6
+world size 8
+local rank 6
+rank 1
+world size 8
+local rank 1
+rank 2
+world size 8
+local rank 2
+rank 0
+world size 8
+local rank 0
+rank 7
+world size 8
+local rank 7
+Using device cuda:1
+Using device cuda:6
+Using device cuda:3
+Using device cuda:5
+Using device cuda:2
+Using device cuda:4
+Using device cuda:7
+Using device cuda:0
+total number of samples 234145
+total number of samples 234145
+total number of samples 234145
+total number of samples 234145
+[rank 0] dataset=234145 world_size=8 sampler_len=29269 dataloader_len(batches)=29269 batch_size=1
+[rank 0] sampler_len=29269 dataloader_len=29269 batch_size=1
+[rank 6] sampler_len=29269 dataloader_len=29269 batch_size=1
+[rank 2] sampler_len=29269 dataloader_len=29269 batch_size=1
+[rank 1] sampler_len=29269 dataloader_len=29269 batch_size=1
+total number of samples 234145
+total number of samples 234145
+[rank 4] sampler_len=29269 dataloader_len=29269 batch_size=1
+[rank 3] sampler_len=29269 dataloader_len=29269 batch_size=1
+total number of samples 234145
+total number of samples 234145
+[rank 5] sampler_len=29269 dataloader_len=29269 batch_size=1
+[rank 7] sampler_len=29269 dataloader_len=29269 batch_size=1
+[Rank 0] Saved manifest with 234152 rows to /private/home/francoisporcher/kinetics_400_embeddings_vjepa2_vitl_fpc64_256/manifest.csv
+===================================================
+End time     : Sat Aug 23 06:18:14 UTC 2025
+Exit code    : 0
+=================== JOB COMPLETE ==================
